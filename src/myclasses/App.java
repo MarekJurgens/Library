@@ -10,6 +10,7 @@ import entity.Book;
 import entity.History;
 import entity.Reader;
 import entity.Reader;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
@@ -30,6 +31,7 @@ public class App {
             System.out.println("Выберите задачу: ");
             System.out.println("Выйти с программы: 0");
             System.out.println("Добавить книгу: 1");
+            System.out.println("Вывести список книг: 2");
             int task = scanner.nextInt();
             scanner.nextLine();
             
@@ -46,6 +48,15 @@ public class App {
                             }
                             break;
                         }
+                    break;
+                case 2:
+                    System.out.println("Список книг: ");
+                    for (int i = 0; i < books.length; i++) {
+                        if(books[i] != null){
+                        System.out.println(books[i].toString());
+                        }
+                        
+                    }
                     break;
             }
         }while("y".equals(repeat));
