@@ -22,6 +22,7 @@ import java.util.Scanner;
 public class App {
     Book[] books = new Book[10];
     Scanner scanner = new Scanner(System.in);
+    Reader[] readers = new Reader[10];
 
     public App() {
     }
@@ -32,6 +33,8 @@ public class App {
             System.out.println("Выйти с программы: 0");
             System.out.println("Добавить книгу: 1");
             System.out.println("Вывести список книг: 2");
+            System.out.println("добавить читателя: 3");
+            System.out.println("Вывести список читателя: 4");
             int task = scanner.nextInt();
             scanner.nextLine();
             
@@ -45,8 +48,8 @@ public class App {
                     for (int i = 0; i < books.length; i++) {
                             if(books[i] == null){
                                 books[i] = addBook();
-                            }
                             break;
+                            }
                         }
                     break;
                 case 2:
@@ -55,7 +58,23 @@ public class App {
                         if(books[i] != null){
                         System.out.println(books[i].toString());
                         }
-                        
+                    }
+                    break;
+                case 3:
+                    System.out.println("Добавление читателя");
+                    for (int i = 0; i < readers.length; i++) {
+                            if(readers[i] == null){
+                                readers[i] = addReader();
+                            break;
+                            }
+                        }
+                    break;
+                case 4:
+                    System.out.println("Список читателей");
+                    for (int i = 0; i < readers.length; i++) {
+                        if(readers[i] != null){
+                        System.out.println(readers[i].toString());
+                        }
                     }
                     break;
             }
@@ -96,6 +115,19 @@ public class App {
         }
         book.setAuthor(authors);
         return book;
+    }
+    
+    private Reader addReader(){
+        Reader reader = new Reader();
+        
+        System.out.print("Введите имя читателя: ");
+        reader.setFirstname(scanner.nextLine());
+        System.out.print("Введите фамилию читателя: ");
+        reader.setLastname(scanner.nextLine());
+        System.out.print("Введите телефон читателя: ");
+        reader.setPhone(scanner.nextLine());
+        
+        return reader;
     }
         //System.out.println("Hello");
 //        Book book1 = new Book();
